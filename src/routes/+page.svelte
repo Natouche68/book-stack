@@ -27,16 +27,25 @@
 			title="36 façons de tuer"
 			author="Stefen Ahnhem"
 			coverImg="https://static.fnac-static.com/multimedia/PE/Images/FR/NR/b7/a4/f3/15967415/1507-1/tsp20240105073935/36-Facons-de-tuer.jpg"
+			buyingDate={1745000233132}
+			pageNumber={630}
+			tags={["policier", "suédois"]}
 		/>
 		<BookCard
 			title="Poulets grillés"
 			author="Sophie Hénaff"
 			coverImg="http://www.mediathequesroannaisagglomeration.fr/sites/default/files/poulets_grilles_-_sophie_henaff.jpg"
+			buyingDate={1744136180376}
+			pageNumber={330}
+			tags={["policier"]}
 		/>
 		<BookCard
 			title="Rester groupés"
 			author="Sophie Hénaff"
 			coverImg="https://m.media-amazon.com/images/I/81aU0zEBFJL._SL1500_.jpg"
+			buyingDate={1744136180376}
+			pageNumber={310}
+			tags={["policier"]}
 		/>
 	</div>
 </div>
