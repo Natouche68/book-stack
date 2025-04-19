@@ -2,25 +2,22 @@
 	import BookCard from "$lib/components/BookCard.svelte";
 </script>
 
-<div class="min-h-dvh flex flex-col bg-amber-100">
+<div class="min-h-dvh flex flex-col bg-green-50">
 	<div
-		class="fixed top-0 left-0 right-0 py-6 text-5xl font-black text-center font-serif uppercase bg-amber-200 border-b-2"
+		class="fixed top-0 left-0 right-0 py-4 text-4xl font-black text-center font-serif uppercase bg-green-200 border-b-2 border-b-green-900"
 	>
 		Book Stack
 	</div>
-	<div class="h-24 mb-2"></div>
+	<div class="h-18"></div>
 
-	<div class="mx-8 my-4 p-4 flex flex-row bg-amber-200 border-2">
-		<img
-			src="https://5livres.fr/wp-content/uploads/2020/03/Le-Dernier-des-Yakuzas.jpg"
-			alt="Le Derniers des Yakuzas de Jake Adelstein"
-			class="w-1/3"
-		/>
-		<div class="pl-4 flex flex-col">
-			<div class="font-bold font-serif text-4xl">Le Dernier des Yakuzas</div>
-			<div class="font-serif text-3xl italic">Jake Adelstein</div>
-		</div>
-	</div>
+	<BookCard
+		title="Le Dernier des Yakuzas"
+		author="Jake Adelstein"
+		coverImg="https://5livres.fr/wp-content/uploads/2020/03/Le-Dernier-des-Yakuzas.jpg"
+		pageNumber={380}
+		isReading={true}
+		pagesRead={320}
+	/>
 
 	<div class="h-full flex flex-col">
 		<BookCard
