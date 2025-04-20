@@ -38,7 +38,7 @@
 			<div class="font-bold font-serif text-2xl">{title}</div>
 			<div class="mb-1 font-serif text-xl italic">{author}</div>
 
-			{#if buyingDate && pageNumber && tags}
+			{#if !isReading && buyingDate && pageNumber && tags}
 				<div class="text-md text-green-900">
 					Acheté {relativeDateFormatter(buyingDate)}
 				</div>
