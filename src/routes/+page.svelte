@@ -32,36 +32,28 @@
 	]);
 </script>
 
-<div class="min-h-dvh flex flex-col bg-green-50">
-	<div
-		class="fixed top-0 left-0 right-0 py-4 text-4xl font-black text-center font-serif uppercase bg-green-200 border-b-2 border-b-green-900"
-	>
-		Book Stack
-	</div>
-	<div class="h-18"></div>
+<BookCard
+	title="Le Dernier des Yakuzas"
+	author="Jake Adelstein"
+	coverImg="https://5livres.fr/wp-content/uploads/2020/03/Le-Dernier-des-Yakuzas.jpg"
+	pageNumber={380}
+	isReading={true}
+	pagesRead={320}
+/>
 
-	<BookCard
-		title="Le Dernier des Yakuzas"
-		author="Jake Adelstein"
-		coverImg="https://5livres.fr/wp-content/uploads/2020/03/Le-Dernier-des-Yakuzas.jpg"
-		pageNumber={380}
-		isReading={true}
-		pagesRead={320}
-	/>
+<div class="mx-4 mt-4 text-2xl font-bold font-serif">Pile de livres</div>
 
-	<div class="mx-4 mt-4 text-3xl font-bold font-serif">Pile de livres</div>
+<div class="overflow-x-auto whitespace-nowrap px-2">
+	{#each books as book}
+		<BookButton
+			title={book.title}
+			author={book.author}
+			coverImg={book.coverImg}
+		/>
+	{/each}
+</div>
 
-	<div class="overflow-x-auto whitespace-nowrap px-2">
-		{#each books as book}
-			<BookButton
-				title={book.title}
-				author={book.author}
-				coverImg={book.coverImg}
-			/>
-		{/each}
-	</div>
-
-	<!-- <div class="h-full flex flex-col">
+<!-- <div class="h-full flex flex-col">
 		<BookCard
 			title="36 façons de tuer"
 			author="Stefen Ahnhem"
@@ -87,4 +79,3 @@
 			tags={["policier"]}
 		/>
 	</div> -->
-</div>
