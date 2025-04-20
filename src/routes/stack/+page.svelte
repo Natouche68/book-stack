@@ -2,6 +2,7 @@
 	import BookCard from "$lib/components/BookCard.svelte";
 	import SortButton from "./SortButton.svelte";
 	import { bookStack, type Book } from "$lib/data.svelte";
+	import { flip } from "svelte/animate";
 
 	let sortingProperty: keyof Book = $state("buyingDate");
 	let ascendingOrder = $state(false);
@@ -57,13 +58,15 @@
 
 <!-- TODO: tags -->
 
-{#each bookStack as book}
-	<BookCard
-		title={book.title}
-		author={book.author}
-		coverImg={book.coverImg}
-		buyingDate={book.buyingDate}
-		pageNumber={book.pageNumber}
-		tags={book.tags}
-	/>
+{#each bookStack as book (book.title)}
+	<div animate:flip={{ duration: 300 }}>
+		<BookCard
+			title={book.title}
+			author={book.author}
+			coverImg={book.coverImg}
+			buyingDate={book.buyingDate}
+			pageNumber={book.pageNumber}
+			tags={book.tags}
+		/>
+	</div>
 {/each}
