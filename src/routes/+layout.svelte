@@ -1,7 +1,21 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { appState, type Book } from "$lib/data.svelte";
 	import "../app.css";
 
 	let { children } = $props();
+
+	onMount(() => {
+		const bookStackStored = localStorage.getItem("bookStack") || "[]";
+		appState.bookStack = JSON.parse(bookStackStored) as Book[];
+
+		const currentlyReadingStored = localStorage.getItem("currentlyReading");
+		if (currentlyReadingStored) {
+			appState.currentlyReadingBook = JSON.parse(
+				currentlyReadingStored
+			) as Book;
+		}
+	});
 </script>
 
 <svelte:head>

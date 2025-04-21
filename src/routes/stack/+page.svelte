@@ -2,7 +2,7 @@
 	import BookCard from "$lib/components/BookCard.svelte";
 	import SortButton from "./SortButton.svelte";
 	import AddBookLink from "./add/AddBookLink.svelte";
-	import { bookStack, type Book } from "$lib/data.svelte";
+	import { appState, type Book } from "$lib/data.svelte";
 	import { flip } from "svelte/animate";
 
 	let sortingProperty: keyof Book = $state("buyingDate");
@@ -22,7 +22,7 @@
 	]);
 
 	$effect(() => {
-		bookStack.sort(
+		appState.bookStack.sort(
 			(a, b) =>
 				(Number(a[sortingProperty]!) - Number(b[sortingProperty]!)) *
 				(ascendingOrder ? 1 : -1)
@@ -59,17 +59,31 @@
 
 <!-- TODO: tags -->
 
-{#each bookStack as book (book.isbn)}
-	<div animate:flip={{ duration: 300 }}>
-		<BookCard
-			title={book.title}
-			author={book.author}
-			coverImg={book.coverImg}
-			buyingDate={book.buyingDate}
-			pageNumber={book.pageNumber}
-			tags={book.tags}
-		/>
+{#if appState.bookStack.length > 0}
+	{#each appState.bookStack as book (book.isbn)}
+		<div animate:flip={{ duration: 300 }}>
+			<BookCard
+				title={book.title}
+				author={book.author}
+				coverImg={book.coverImg}
+				buyingDate={book.buyingDate}
+				pageNumber={book.pageNumber}
+				tags={book.tags}
+			/>
+		</div>
+	{/each}
+{:else}
+	<div class="py-4 text-center font-medium italic text-green-900">
+		Vous n'avez aucun livre dans votre pile.
+		<br />
+		Allez en rajouter !
 	</div>
-{/each}
+	<a
+		href="/stack/add"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+	>
+		Ajouter un livre
+	</a>
+{/if}
 
 <AddBookLink small />

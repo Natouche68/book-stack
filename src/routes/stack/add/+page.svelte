@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { bookStack, type Book } from "$lib/data.svelte";
+	import { appState, type Book } from "$lib/data.svelte";
 
 	let isbn: number | undefined = $state();
 	let title: string = $state("");
@@ -23,8 +23,10 @@
 				pageNumber,
 				tags: parsedTags,
 			};
-			bookStack.unshift(newBook);
+			appState.bookStack.unshift(newBook);
 			goto("/");
+
+			localStorage.setItem("bookStack", JSON.stringify(appState.bookStack));
 		}
 	}
 </script>
