@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BookCard from "$lib/components/BookCard.svelte";
 	import BookButton from "$lib/components/BookButton.svelte";
+	import AddBookLink from "./stack/add/AddBookLink.svelte";
 	import ArrowRight from "@lucide/svelte/icons/arrow-right";
 	import { bookStack, currentlyReadingBook } from "$lib/data.svelte";
 </script>
@@ -34,3 +35,5 @@
 		<br />
 	</a>
 </div>
+
+<AddBookLink />

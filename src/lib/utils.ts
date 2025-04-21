@@ -1,7 +1,11 @@
 const dateFormatter = new Intl.RelativeTimeFormat("fr");
 
 export function relativeDateFormatter(date: number): string {
-	const diff = Date.now() - date;
+	const today = new Date();
+	const diff =
+		Date.parse(
+			`${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+		) - date;
 	let formatted = "";
 
 	if (diff / (1000 * 60 * 60 * 24 * 31 * 12) > 1) {

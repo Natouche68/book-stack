@@ -1,6 +1,7 @@
 <script lang="ts">
 	import BookCard from "$lib/components/BookCard.svelte";
 	import SortButton from "./SortButton.svelte";
+	import AddBookLink from "./add/AddBookLink.svelte";
 	import { bookStack, type Book } from "$lib/data.svelte";
 	import { flip } from "svelte/animate";
 
@@ -58,7 +59,7 @@
 
 <!-- TODO: tags -->
 
-{#each bookStack as book (book.title)}
+{#each bookStack as book (book.isbn)}
 	<div animate:flip={{ duration: 300 }}>
 		<BookCard
 			title={book.title}
@@ -70,3 +71,5 @@
 		/>
 	</div>
 {/each}
+
+<AddBookLink small />
