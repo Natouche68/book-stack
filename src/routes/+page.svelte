@@ -8,6 +8,7 @@
 
 {#if appState.currentlyReadingBook}
 	<BookCard
+		isbn={appState.currentlyReadingBook.isbn}
 		title={appState.currentlyReadingBook.title}
 		author={appState.currentlyReadingBook.author}
 		coverImg={appState.currentlyReadingBook.coverImg}
@@ -37,6 +38,7 @@
 	<div class="overflow-x-auto whitespace-nowrap px-2">
 		{#each appState.bookStack as book}
 			<BookButton
+				isbn={book.isbn}
 				title={book.title}
 				author={book.author}
 				coverImg={book.coverImg}

@@ -63,6 +63,7 @@
 	{#each appState.bookStack as book (book.isbn)}
 		<div animate:flip={{ duration: 300 }}>
 			<BookCard
+				isbn={book.isbn}
 				title={book.title}
 				author={book.author}
 				coverImg={book.coverImg}

@@ -1,14 +1,15 @@
 <script lang="ts">
 	interface Props {
+		isbn: number;
 		title: string;
 		author: string;
 		coverImg: string;
 	}
 
-	let { title, author, coverImg }: Props = $props();
+	let { isbn, title, author, coverImg }: Props = $props();
 </script>
 
-<div class="inline-block w-32 my-4 mx-2 overflow-hidden">
+<a href="/book/{isbn}" class="inline-block w-32 my-4 mx-2 overflow-hidden">
 	<div class="w-full h-48 mb-2">
 		<img
 			src={coverImg}
@@ -23,4 +24,4 @@
 		<div class="font-bold font-serif">{title}</div>
 		<div class="text-sm italic">{author}</div>
 	</div>
-</div>
+</a>

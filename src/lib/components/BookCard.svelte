@@ -2,6 +2,7 @@
 	import { relativeDateFormatter } from "$lib/utils";
 
 	interface Props {
+		isbn: number;
 		title: string;
 		author: string;
 		coverImg: string;
@@ -13,6 +14,7 @@
 	}
 
 	let {
+		isbn,
 		title,
 		author,
 		coverImg,
@@ -24,9 +26,9 @@
 	}: Props = $props();
 </script>
 
-<div class=" p-4 border-b-2 border-b-green-900">
+<a href="/book/{isbn}" class="block p-4 border-b-2 border-b-green-900">
 	<div class="flex flex-row">
-		<img src={coverImg} alt={`${title} de ${author}`} class="w-1/3" />
+		<img src={coverImg} alt="{title} de {author}" class="w-1/3" />
 
 		<div class="pl-4 flex flex-col">
 			{#if isReading}
@@ -63,4 +65,4 @@
 			</div>
 		</div>
 	{/if}
-</div>
+</a>

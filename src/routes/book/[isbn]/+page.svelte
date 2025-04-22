@@ -1,0 +1,75 @@
+<script lang="ts">
+	import type { PageProps } from "./$types";
+	import { appState, type Book } from "$lib/data.svelte";
+	import { relativeDateFormatter } from "$lib/utils";
+
+	let { data }: PageProps = $props();
+	let book: Book | undefined = $state();
+
+	$effect(() => {
+		book =
+			appState.bookStack.find((value) => value.isbn === data.isbn) ||
+			(data.isbn == appState.currentlyReadingBook?.isbn
+				? appState.currentlyReadingBook
+				: undefined);
+	});
+</script>
+
+{#if book}
+	<div class="p-4">
+		<img
+			src={book.coverImg}
+			alt="{book.title} de {book.author}"
+			class="mx-auto mb-6 w-2/3"
+		/>
+
+		<div class="my-2">
+			{#if book.isReading}
+				<div class="italic text-green-900">En cours de lecture</div>
+			{/if}
+
+			<div class="font-bold font-serif text-3xl">{book.title}</div>
+			<div class="mb-1 font-serif text-2xl italic">{book.author}</div>
+		</div>
+
+		<div class="my-2">
+			{#if book.buyingDate}
+				<div class="text-md text-green-900">
+					Acheté {relativeDateFormatter(book.buyingDate)}
+				</div>
+			{/if}
+			{#if book.pageNumber}
+				<div class="mb-1 text-md text-green-900">{book.pageNumber} pages</div>
+			{/if}
+			{#if book.tags}
+				<div>
+					{#each book.tags as tag}
+						<span class="mr-1 p-1 text-md bg-green-200">{tag}</span>
+					{/each}
+				</div>
+			{/if}
+		</div>
+
+		{#if book.isReading && book.pageNumber && book.pagesRead}
+			<div class="relative mt-4 h-8 bg-green-100 border-2 border-green-900">
+				<div
+					class="h-full bg-green-300"
+					style="width: {(100 * book.pagesRead) / book.pageNumber}%;"
+				></div>
+				<div class="absolute inset-0 text-center content-center">
+					{Math.floor((100 * book.pagesRead) / book.pageNumber)}%
+				</div>
+			</div>
+		{/if}
+	</div>
+{:else}
+	<div class="py-4 text-center font-medium italic text-green-900">
+		Aucun livre n'a été trouvé avec cet ISBN.
+	</div>
+	<a
+		href="/"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+	>
+		Retourner à l'accueil
+	</a>
+{/if}
