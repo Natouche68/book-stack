@@ -2,6 +2,8 @@
 	import type { PageProps } from "./$types";
 	import { appState, type Book } from "$lib/data.svelte";
 	import { relativeDateFormatter } from "$lib/utils";
+	import Pencil from "@lucide/svelte/icons/pencil";
+	import ReadProgressDialog from "$lib/components/ReadProgressDialog.svelte";
 
 	let { data }: PageProps = $props();
 	let book: Book | undefined = $state();
@@ -13,6 +15,18 @@
 				? appState.currentlyReadingBook
 				: undefined);
 	});
+
+	let openProgressDialog: () => void = () => {};
+
+	function onProgressDialogInit(openDialog: () => void): void {
+		openProgressDialog = openDialog;
+	}
+
+	function onProgressButtonClicked(event: MouseEvent): void {
+		event.stopPropagation();
+		event.preventDefault();
+		openProgressDialog();
+	}
 </script>
 
 {#if book}
@@ -51,7 +65,10 @@
 		</div>
 
 		{#if book.isReading && book.pageNumber && book.pagesRead}
-			<div class="relative mt-4 h-8 bg-green-100 border-2 border-green-900">
+			<button
+				class="relative w-full mt-4 h-8 bg-green-100 border-2 border-green-900"
+				onclick={onProgressButtonClicked}
+			>
 				<div
 					class="h-full bg-green-300"
 					style="width: {(100 * book.pagesRead) / book.pageNumber}%;"
@@ -59,7 +76,18 @@
 				<div class="absolute inset-0 text-center content-center">
 					{Math.floor((100 * book.pagesRead) / book.pageNumber)}%
 				</div>
-			</div>
+				<div
+					class="absolute top-0 bottom-0 right-2 content-center text-green-900"
+				>
+					<Pencil size={20} />
+				</div>
+
+				<ReadProgressDialog
+					pageNumber={book.pageNumber}
+					pagesRead={book.pagesRead}
+					onInit={onProgressDialogInit}
+				/>
+			</button>
 		{/if}
 	</div>
 {:else}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
 	import { appState } from "$lib/data.svelte";
 	import { onMount } from "svelte";
 
@@ -24,9 +25,26 @@
 	}
 
 	function onSubmit(event: MouseEvent): void {
-		if (appState.currentlyReadingBook?.pagesRead && dialog) {
+		if (
+			appState.currentlyReadingBook?.pagesRead &&
+			appState.currentlyReadingBook?.pageNumber &&
+			dialog
+		) {
 			event.stopPropagation();
 			event.preventDefault();
+
+			if (
+				newPagesRead >
+				appState.currentlyReadingBook.pageNumber -
+					appState.currentlyReadingBook.pagesRead
+			) {
+				newPagesRead =
+					appState.currentlyReadingBook.pageNumber -
+					appState.currentlyReadingBook.pagesRead;
+			}
+			if (newPagesRead <= 0) {
+				return;
+			}
 
 			appState.currentlyReadingBook.pagesRead += newPagesRead;
 			localStorage.setItem(
@@ -34,6 +52,13 @@
 				JSON.stringify(appState.currentlyReadingBook)
 			);
 			dialog.close();
+
+			if (
+				appState.currentlyReadingBook.pagesRead ==
+				appState.currentlyReadingBook.pageNumber
+			) {
+				goto("/book-finished");
+			}
 		}
 	}
 
