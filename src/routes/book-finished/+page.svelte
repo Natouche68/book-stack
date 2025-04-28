@@ -9,9 +9,12 @@
 			appState.currentlyReadingBook?.pagesRead
 		) {
 			if (
-				appState.currentlyReadingBook.pageNumber !=
+				appState.currentlyReadingBook.pageNumber ==
 				appState.currentlyReadingBook.pagesRead
 			) {
+				appState.currentlyReadingBook = undefined;
+				localStorage.setItem("currentlyReading", "");
+			} else {
 				goto("/");
 			}
 		}

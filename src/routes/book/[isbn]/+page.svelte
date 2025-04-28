@@ -4,6 +4,7 @@
 	import { relativeDateFormatter } from "$lib/utils";
 	import Pencil from "@lucide/svelte/icons/pencil";
 	import ReadProgressDialog from "$lib/components/ReadProgressDialog.svelte";
+	import { goto } from "$app/navigation";
 
 	let { data }: PageProps = $props();
 	let book: Book | undefined = $state();
@@ -26,6 +27,26 @@
 		event.stopPropagation();
 		event.preventDefault();
 		openProgressDialog();
+	}
+
+	function onReadBookClick(): void {
+		appState.currentlyReadingBook = book;
+		if (appState.currentlyReadingBook) {
+			appState.currentlyReadingBook.isReading = true;
+			appState.currentlyReadingBook.pagesRead = 0;
+
+			appState.bookStack = appState.bookStack.filter(
+				(val) => val.isbn != book?.isbn
+			);
+
+			localStorage.setItem(
+				"currentlyReading",
+				JSON.stringify(appState.currentlyReadingBook)
+			);
+			localStorage.setItem("bookStack", JSON.stringify(appState.bookStack));
+
+			goto("/");
+		}
 	}
 </script>
 
@@ -64,7 +85,7 @@
 			{/if}
 		</div>
 
-		{#if book.isReading && book.pageNumber && book.pagesRead}
+		{#if book.isReading && book.pageNumber && book.pagesRead != undefined}
 			<button
 				class="relative w-full mt-4 h-8 bg-green-100 border-2 border-green-900"
 				onclick={onProgressButtonClicked}
@@ -87,6 +108,15 @@
 					pagesRead={book.pagesRead}
 					onInit={onProgressDialogInit}
 				/>
+			</button>
+		{/if}
+
+		{#if !appState.currentlyReadingBook}
+			<button
+				onclick={onReadBookClick}
+				class="block w-full my-8 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+			>
+				Lire ce livre
 			</button>
 		{/if}
 	</div>

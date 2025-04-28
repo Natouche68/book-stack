@@ -68,7 +68,7 @@
 		</div>
 	</div>
 
-	{#if isReading && pageNumber && pagesRead}
+	{#if isReading && pageNumber && pagesRead != undefined}
 		<button
 			class="relative w-full mt-4 h-8 bg-green-100 border-2 border-green-900"
 			onclick={onProgressButtonClicked}
