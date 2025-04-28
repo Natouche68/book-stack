@@ -2,7 +2,6 @@
 	import { relativeDateFormatter } from "$lib/utils";
 	import Pencil from "@lucide/svelte/icons/pencil";
 	import ReadProgressDialog from "./ReadProgressDialog.svelte";
-	import type { SvelteComponent } from "svelte";
 
 	interface Props {
 		isbn: number;
