@@ -102,12 +102,6 @@
 				>
 					<Pencil size={20} />
 				</div>
-
-				<ReadProgressDialog
-					pageNumber={book.pageNumber}
-					pagesRead={book.pagesRead}
-					onInit={onProgressDialogInit}
-				/>
 			</button>
 		{/if}
 
@@ -120,6 +114,14 @@
 			</button>
 		{/if}
 	</div>
+
+	{#if book.isReading && book.pageNumber && book.pagesRead != undefined}
+		<ReadProgressDialog
+			pageNumber={book.pageNumber}
+			pagesRead={book.pagesRead}
+			onInit={onProgressDialogInit}
+		/>
+	{/if}
 {:else}
 	<div class="py-4 text-center font-medium italic text-green-900">
 		Aucun livre n'a été trouvé avec cet ISBN.

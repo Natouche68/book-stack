@@ -85,12 +85,10 @@
 			>
 				<Pencil size={20} />
 			</div>
-
-			<ReadProgressDialog
-				{pageNumber}
-				{pagesRead}
-				onInit={onProgressDialogInit}
-			/>
 		</button>
 	{/if}
 </a>
+
+{#if isReading && pageNumber && pagesRead != undefined}
+	<ReadProgressDialog {pageNumber} {pagesRead} onInit={onProgressDialogInit} />
+{/if}
