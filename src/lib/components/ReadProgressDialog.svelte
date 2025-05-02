@@ -25,7 +25,7 @@
 
 	function onSubmit(event: MouseEvent): void {
 		if (
-			appState.currentlyReadingBook?.pagesRead &&
+			appState.currentlyReadingBook?.pagesRead != undefined &&
 			appState.currentlyReadingBook?.pageNumber
 		) {
 			event.stopPropagation();
@@ -51,6 +51,8 @@
 			);
 			open = false;
 
+			updateStats();
+
 			if (
 				appState.currentlyReadingBook.pagesRead ==
 				appState.currentlyReadingBook.pageNumber
@@ -64,6 +66,44 @@
 		event.stopPropagation();
 		event.preventDefault();
 		open = false;
+	}
+
+	function updateStats(): void {
+		const hasAlreadySetToday =
+			new Date(appState.lastVisit).getDate() == new Date().getDate();
+
+		switch (new Date().getDay()) {
+			case 0:
+				appState.statsPerDay.mo.pages += newPagesRead;
+				appState.statsPerDay.mo.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 1:
+				appState.statsPerDay.tu.pages += newPagesRead;
+				appState.statsPerDay.tu.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 2:
+				appState.statsPerDay.we.pages += newPagesRead;
+				appState.statsPerDay.we.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 3:
+				appState.statsPerDay.th.pages += newPagesRead;
+				appState.statsPerDay.th.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 4:
+				appState.statsPerDay.fr.pages += newPagesRead;
+				appState.statsPerDay.fr.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 5:
+				appState.statsPerDay.sa.pages += newPagesRead;
+				appState.statsPerDay.sa.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 6:
+				appState.statsPerDay.su.pages += newPagesRead;
+				appState.statsPerDay.su.days += hasAlreadySetToday ? 0 : 1;
+				break;
+		}
+
+		localStorage.setItem("statsPerDay", JSON.stringify(appState.statsPerDay));
 	}
 </script>
 

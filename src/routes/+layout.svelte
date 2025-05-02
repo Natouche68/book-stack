@@ -16,6 +16,14 @@
 				currentlyReadingStored
 			) as Book;
 		}
+
+		const statsPerDayStored = localStorage.getItem("statsPerDay");
+		if (statsPerDayStored) {
+			appState.statsPerDay = JSON.parse(statsPerDayStored);
+		}
+
+		const lastVisitStored = Number(localStorage.getItem("lastVisit")) || 0;
+		appState.lastVisit = lastVisitStored;
 	});
 
 	onNavigate((navigation) => {
