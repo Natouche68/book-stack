@@ -91,7 +91,7 @@
 				onclick={onProgressButtonClicked}
 			>
 				<div
-					class="h-full bg-green-300"
+					class="h-full bg-green-300 transition-all"
 					style="width: {(100 * book.pagesRead) / book.pageNumber}%;"
 				></div>
 				<div class="absolute inset-0 text-center content-center">

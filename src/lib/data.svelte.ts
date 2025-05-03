@@ -27,6 +27,7 @@ export type AppState = {
 		sa: ReadStats;
 		su: ReadStats;
 	};
+	bookFinished: number;
 	lastVisit: number;
 };
 
@@ -63,5 +64,6 @@ export let appState: AppState = $state({
 			days: 0,
 		},
 	},
+	bookFinished: 0,
 	lastVisit: 0,
 });

@@ -22,8 +22,9 @@
 			appState.statsPerDay = JSON.parse(statsPerDayStored);
 		}
 
-		const lastVisitStored = Number(localStorage.getItem("lastVisit")) || 0;
-		appState.lastVisit = lastVisitStored;
+		appState.bookFinished = Number(localStorage.getItem("bookFinished")) || 0;
+
+		appState.lastVisit = Number(localStorage.getItem("lastVisit")) || 0;
 	});
 
 	onNavigate((navigation) => {

@@ -74,36 +74,39 @@
 
 		switch (new Date().getDay()) {
 			case 0:
+				appState.statsPerDay.su.pages += newPagesRead;
+				appState.statsPerDay.su.days += hasAlreadySetToday ? 0 : 1;
+				break;
+			case 1:
 				appState.statsPerDay.mo.pages += newPagesRead;
 				appState.statsPerDay.mo.days += hasAlreadySetToday ? 0 : 1;
 				break;
-			case 1:
+			case 2:
 				appState.statsPerDay.tu.pages += newPagesRead;
 				appState.statsPerDay.tu.days += hasAlreadySetToday ? 0 : 1;
 				break;
-			case 2:
+			case 3:
 				appState.statsPerDay.we.pages += newPagesRead;
 				appState.statsPerDay.we.days += hasAlreadySetToday ? 0 : 1;
 				break;
-			case 3:
+			case 4:
 				appState.statsPerDay.th.pages += newPagesRead;
 				appState.statsPerDay.th.days += hasAlreadySetToday ? 0 : 1;
 				break;
-			case 4:
+			case 5:
 				appState.statsPerDay.fr.pages += newPagesRead;
 				appState.statsPerDay.fr.days += hasAlreadySetToday ? 0 : 1;
 				break;
-			case 5:
+			case 6:
 				appState.statsPerDay.sa.pages += newPagesRead;
 				appState.statsPerDay.sa.days += hasAlreadySetToday ? 0 : 1;
-				break;
-			case 6:
-				appState.statsPerDay.su.pages += newPagesRead;
-				appState.statsPerDay.su.days += hasAlreadySetToday ? 0 : 1;
 				break;
 		}
 
 		localStorage.setItem("statsPerDay", JSON.stringify(appState.statsPerDay));
+
+		appState.lastVisit = Date.now();
+		localStorage.setItem("lastVisit", appState.lastVisit.toString());
 	}
 </script>
 

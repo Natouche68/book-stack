@@ -14,6 +14,9 @@
 			) {
 				appState.currentlyReadingBook = undefined;
 				localStorage.setItem("currentlyReading", "");
+
+				appState.bookFinished += 1;
+				localStorage.setItem("bookFinished", appState.bookFinished.toString());
 			} else {
 				goto("/");
 			}
