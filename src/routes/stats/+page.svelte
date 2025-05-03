@@ -42,8 +42,9 @@
 	Statistiques de lecture
 </div>
 
-<div class="mx-4 my-8 flex flex-row items-end gap-4">
+<div class="mx-4 mt-6 flex flex-row items-end gap-4">
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[0])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[0]) / maxMean}rem"
@@ -51,6 +52,7 @@
 		<div class="italic text-center text-green-900">Lu</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[1])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[1]) / maxMean}rem"
@@ -58,6 +60,7 @@
 		<div class="italic text-center text-green-900">Ma</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[2])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[2]) / maxMean}rem"
@@ -65,6 +68,7 @@
 		<div class="italic text-center text-green-900">Me</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[3])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[3]) / maxMean}rem"
@@ -72,6 +76,7 @@
 		<div class="italic text-center text-green-900">Je</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[4])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[4]) / maxMean}rem"
@@ -79,6 +84,7 @@
 		<div class="italic text-center text-green-900">Ve</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[5])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[5]) / maxMean}rem"
@@ -86,12 +92,16 @@
 		<div class="italic text-center text-green-900">Sa</div>
 	</div>
 	<div class="w-full">
+		<div class="text-center">{Math.floor(means[6])}</div>
 		<div
 			class="bg-green-300"
 			style="height: {(12 * means[6]) / maxMean}rem"
 		></div>
 		<div class="italic text-center text-green-900">Di</div>
 	</div>
+</div>
+<div class="mb-6 text-center text-sm text-green-900">
+	Moyenne de pages lues par jour
 </div>
 
 <div class="flex flex-row flex-wrap">
