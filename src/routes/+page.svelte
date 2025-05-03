@@ -68,4 +68,11 @@
 	</a>
 {/if}
 
+<a
+	href="/stats"
+	class="fixed bottom-2 left-2 block p-2 text-center text-lg font-serif font-bold bg-green-300 border-2 border-green-900"
+>
+	Statistiques
+</a>
+
 <AddBookLink />
