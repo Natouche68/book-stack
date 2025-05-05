@@ -2,11 +2,22 @@
 	import BookCard from "$lib/components/BookCard.svelte";
 	import SortButton from "./SortButton.svelte";
 	import AddBookLink from "./add/AddBookLink.svelte";
-	import { appState, type Book } from "$lib/data.svelte";
+	import { appState, getTags, type Book } from "$lib/data.svelte";
 	import { flip } from "svelte/animate";
+	import { SvelteSet } from "svelte/reactivity";
 
 	let sortingProperty: keyof Book = $state("buyingDate");
 	let ascendingOrder = $state(false);
+
+	let tags = getTags();
+	let tagsToFilter = new SvelteSet<string>();
+
+	let filteredBooks = $derived(
+		appState.bookStack.filter(
+			(book) =>
+				tagsToFilter.size == 0 || book.tags?.some((v) => tagsToFilter.has(v))
+		)
+	);
 
 	let properties = $state([
 		{
@@ -42,6 +53,14 @@
 			ascendingOrder = order;
 		}
 	}
+
+	function swapTag(tag: string): void {
+		if (tagsToFilter.has(tag)) {
+			tagsToFilter.delete(tag);
+		} else {
+			tagsToFilter.add(tag);
+		}
+	}
 </script>
 
 <div class="px-2 py-4 border-b-2 border-b-green-900">
@@ -57,10 +76,21 @@
 	{/each}
 </div>
 
-<!-- TODO: tags -->
+<div class="px-2 py-4 border-b-2 border-b-green-900">
+	{#each tags as tag}
+		<button
+			class="mr-1 pl-1 pr-2 text-lg {tagsToFilter.has(tag)
+				? 'bg-green-300 font-medium'
+				: 'bg-green-200'} transition"
+			onclick={() => swapTag(tag)}
+		>
+			{tag}
+		</button>
+	{/each}
+</div>
 
 {#if appState.bookStack.length > 0}
-	{#each appState.bookStack as book (book.isbn)}
+	{#each filteredBooks as book (book.isbn)}
 		<div animate:flip={{ duration: 300 }}>
 			<BookCard
 				isbn={book.isbn}

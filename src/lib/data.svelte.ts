@@ -67,3 +67,15 @@ export let appState: AppState = $state({
 	bookFinished: 0,
 	lastVisit: 0,
 });
+
+export function getTags(): string[] {
+	const tags = new Set<string>();
+	[appState.currentlyReadingBook, ...appState.bookStack].forEach((book) => {
+		if (book && book.tags) {
+			for (let i = 0; i < book.tags.length; i++) {
+				tags.add(book.tags[i]);
+			}
+		}
+	});
+	return Array.from(tags.values());
+}
