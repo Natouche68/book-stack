@@ -10,6 +10,8 @@
 	let pageNumber: number | undefined = $state();
 	let tags: string = $state("");
 
+	let loadingDataFromIsbn: boolean = $state(false);
+
 	function onAddBook(event: SubmitEvent) {
 		event.preventDefault();
 		if (isbn && pageNumber) {
@@ -29,6 +31,17 @@
 			localStorage.setItem("bookStack", JSON.stringify(appState.bookStack));
 		}
 	}
+
+	async function onIsbnEntered(): Promise<void> {
+		loadingDataFromIsbn = true;
+		const response = await fetch(`/api/load-with-isbn/${isbn}`);
+		const data = await response.json();
+		title = data.title;
+		author = data.author;
+		coverImg = data.coverImg;
+		pageNumber = data.pageNumber;
+		loadingDataFromIsbn = false;
+	}
 </script>
 
 <form class="mx-4 my-2" onsubmit={onAddBook}>
@@ -40,7 +53,11 @@
 			class="w-full bg-transparent border-2 border-green-900"
 			required
 			bind:value={isbn}
+			onchange={onIsbnEntered}
 		/>
+		{#if loadingDataFromIsbn}
+			<div class="text-right italic text-green-900">Chargement...</div>
+		{/if}
 	</div>
 	<div class="py-2 flex flex-col">
 		<label for="title" class="text-green-900">Titre</label>

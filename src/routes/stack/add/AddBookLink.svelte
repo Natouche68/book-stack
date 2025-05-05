@@ -11,6 +11,7 @@
 <a
 	href="/stack/add"
 	class="fixed flex flex-row gap-1 items-center p-2 bottom-2 right-2 bg-green-300 border-2 border-green-900"
+	style="view-transition-name: add-book-button;"
 >
 	<Plus size={28} />
 	{#if !small}
