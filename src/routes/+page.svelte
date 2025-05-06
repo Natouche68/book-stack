@@ -38,7 +38,7 @@
 
 {#if appState.bookStack.length > 0}
 	<div class="overflow-x-auto whitespace-nowrap px-2">
-		{#each appState.bookStack as book}
+		{#each appState.bookStack.slice(0, 5) as book}
 			<BookButton
 				isbn={book.isbn}
 				title={book.title}
