@@ -19,7 +19,7 @@
 	</div>
 	<div class="relative">
 		<div
-			class="absolute top-0 bottom-0 right-0 w-2 bg-linear-to-r from-transparent to-green-50"
+			class="absolute top-0 bottom-0 right-0 w-2 bg-linear-to-r from-transparent to-green-50 dark:to-green-950"
 		></div>
 		<div class="font-bold font-serif">{title}</div>
 		<div class="text-sm italic">{author}</div>

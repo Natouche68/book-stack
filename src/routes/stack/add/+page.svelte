@@ -46,78 +46,87 @@
 
 <form class="mx-4 my-2" onsubmit={onAddBook}>
 	<div class="py-2 flex flex-col">
-		<label for="isbn" class="text-green-900">ISBN</label>
+		<label for="isbn" class="text-green-900 dark:text-green-100">ISBN</label>
 		<input
 			type="number"
 			id="isbn"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			bind:value={isbn}
 			onchange={onIsbnEntered}
 		/>
 		{#if loadingDataFromIsbn}
-			<div class="text-right italic text-green-900">Chargement...</div>
+			<div class="text-right italic text-green-900 dark:text-green-100">
+				Chargement...
+			</div>
 		{/if}
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="title" class="text-green-900">Titre</label>
+		<label for="title" class="text-green-900 dark:text-green-100">Titre</label>
 		<input
 			type="text"
 			id="title"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			bind:value={title}
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="author" class="text-green-900">Auteur</label>
+		<label for="author" class="text-green-900 dark:text-green-100">Auteur</label
+		>
 		<input
 			type="text"
 			id="author"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			bind:value={author}
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="coverImg" class="text-green-900">Image de couverture</label>
+		<label for="coverImg" class="text-green-900 dark:text-green-100"
+			>Image de couverture</label
+		>
 		<input
 			type="text"
 			id="coverImg"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			bind:value={coverImg}
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="buyingDate" class="text-green-900">Date d'achat</label>
+		<label for="buyingDate" class="text-green-900 dark:text-green-100"
+			>Date d'achat</label
+		>
 		<input
 			type="date"
 			id="buyingDate"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			placeholder="2023-08-22"
 			bind:value={buyingDate}
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="pageNumber" class="text-green-900">Nombre de pages</label>
+		<label for="pageNumber" class="text-green-900 dark:text-green-100"
+			>Nombre de pages</label
+		>
 		<input
 			type="number"
 			id="pageNumber"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			required
 			bind:value={pageNumber}
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="tags" class="text-green-900">
+		<label for="tags" class="text-green-900 dark:text-green-100">
 			Tags <span class="italic">(séparé par des virgules)</span>
 		</label>
 		<input
 			type="text"
 			id="tags"
-			class="w-full bg-transparent border-2 border-green-900"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 			placeholder="romance, best-friends to lover"
 			bind:value={tags}
 		/>
@@ -125,7 +134,7 @@
 	<div class="py-6">
 		<button
 			type="submit"
-			class="w-full py-2 text-lg font-serif font-bold bg-green-300 border-2 border-green-900"
+			class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 		>
 			Ajouter
 		</button>

@@ -63,7 +63,7 @@
 	}
 </script>
 
-<div class="px-2 py-4 border-b-2 border-b-green-900">
+<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-100">
 	{#each properties as property, i}
 		<SortButton
 			property={property.property}
@@ -76,12 +76,12 @@
 	{/each}
 </div>
 
-<div class="px-2 py-4 border-b-2 border-b-green-900">
+<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-100">
 	{#each tags as tag}
 		<button
 			class="mr-1 pl-1 pr-2 text-lg {tagsToFilter.has(tag)
-				? 'bg-green-300 font-medium'
-				: 'bg-green-200'} transition"
+				? 'bg-green-300 dark:bg-green-700 font-medium'
+				: 'bg-green-200 dark:bg-green-800'} transition"
 			onclick={() => swapTag(tag)}
 		>
 			{tag}
@@ -104,14 +104,16 @@
 		</div>
 	{/each}
 {:else}
-	<div class="py-4 text-center font-medium italic text-green-900">
+	<div
+		class="py-4 text-center font-medium italic text-green-900 dark:text-green-100"
+	>
 		Vous n'avez aucun livre dans votre pile.
 		<br />
 		Allez en rajouter !
 	</div>
 	<a
 		href="/stack/add"
-		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 	>
 		Ajouter un livre
 	</a>

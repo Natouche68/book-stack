@@ -112,18 +112,21 @@
 
 {#if open}
 	<div
-		class="fixed inset-0 backdrop-blur-xs bg-gray-900/30 z-10"
+		class="fixed inset-0 backdrop-blur-xs bg-gray-900/30 dark:bg-gray-900/70 z-10"
 		transition:fade={{ duration: 300 }}
 	></div>
 	<div
-		class="fixed z-10 bottom-0 w-screen p-4 bg-green-50 border-t-2 border-t-green-900"
+		class="fixed z-10 bottom-0 w-screen p-4 bg-green-50 dark:bg-green-950 border-t-2 border-t-green-900 dark:border-t-green-100"
 		transition:slide={{ duration: 300, axis: "y" }}
 	>
 		<div class="mb-2 font-serif font-bold text-2xl text-left">
 			Mettre à jour le progrès de lecture
 		</div>
 		<div class="py-2 flex flex-col">
-			<label for="newPagesRead" class="text-left text-green-900">
+			<label
+				for="newPagesRead"
+				class="text-left text-green-900 dark:text-green-100"
+			>
 				Nombre de pages lues aujourd'hui
 			</label>
 			<input
@@ -131,7 +134,7 @@
 				id="newPagesRead"
 				min="1"
 				max={pageNumber - pagesRead}
-				class="w-full bg-transparent border-2 border-green-900"
+				class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
 				required
 				bind:value={newPagesRead}
 			/>
@@ -139,12 +142,12 @@
 		<div class="pt-4">
 			<button
 				onclick={onSubmit}
-				class="w-full py-2 text-lg font-serif font-bold bg-green-300 border-2 border-green-900"
+				class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 			>
 				Mettre à jour
 			</button>
 			<button
-				class="w-full py-2 text-lg font-serif underline text-green-900"
+				class="w-full py-2 text-lg font-serif underline text-green-900 dark:text-green-100"
 				onclick={onCancel}
 			>
 				Annuler

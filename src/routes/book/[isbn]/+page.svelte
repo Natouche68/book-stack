@@ -60,7 +60,9 @@
 
 		<div class="my-2">
 			{#if book.isReading}
-				<div class="italic text-green-900">En cours de lecture</div>
+				<div class="italic text-green-900 dark:text-green-100">
+					En cours de lecture
+				</div>
 			{/if}
 
 			<div class="font-bold font-serif text-3xl">{book.title}</div>
@@ -69,17 +71,21 @@
 
 		<div class="my-2">
 			{#if book.buyingDate}
-				<div class="text-md text-green-900">
+				<div class="text-md text-green-900 dark:text-green-100">
 					Acheté {relativeDateFormatter(book.buyingDate)}
 				</div>
 			{/if}
 			{#if book.pageNumber}
-				<div class="mb-1 text-md text-green-900">{book.pageNumber} pages</div>
+				<div class="mb-1 text-md text-green-900 dark:text-green-100">
+					{book.pageNumber} pages
+				</div>
 			{/if}
 			{#if book.tags}
 				<div>
 					{#each book.tags as tag}
-						<span class="mr-1 p-1 text-md bg-green-200">{tag}</span>
+						<span class="mr-1 p-1 text-md bg-green-200 dark:bg-green-800"
+							>{tag}</span
+						>
 					{/each}
 				</div>
 			{/if}
@@ -87,18 +93,18 @@
 
 		{#if book.isReading && book.pageNumber && book.pagesRead != undefined}
 			<button
-				class="relative w-full mt-4 h-8 bg-green-100 border-2 border-green-900"
+				class="relative w-full mt-4 h-8 bg-green-100 dark:bg-green-900 border-2 border-green-900 dark:border-green-100"
 				onclick={onProgressButtonClicked}
 			>
 				<div
-					class="h-full bg-green-300 transition-all"
+					class="h-full bg-green-300 dark:bg-green-700 transition-all"
 					style="width: {(100 * book.pagesRead) / book.pageNumber}%;"
 				></div>
 				<div class="absolute inset-0 text-center content-center">
 					{Math.floor((100 * book.pagesRead) / book.pageNumber)}%
 				</div>
 				<div
-					class="absolute top-0 bottom-0 right-2 content-center text-green-900"
+					class="absolute top-0 bottom-0 right-2 content-center text-green-900 dark:text-green-100"
 				>
 					<Pencil size={20} />
 				</div>
@@ -108,7 +114,7 @@
 		{#if !appState.currentlyReadingBook}
 			<button
 				onclick={onReadBookClick}
-				class="block w-full my-8 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+				class="block w-full my-8 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 			>
 				Lire ce livre
 			</button>
@@ -123,12 +129,14 @@
 		/>
 	{/if}
 {:else}
-	<div class="py-4 text-center font-medium italic text-green-900">
+	<div
+		class="py-4 text-center font-medium italic text-green-900 dark:text-green-100"
+	>
 		Aucun livre n'a été trouvé avec cet ISBN.
 	</div>
 	<a
 		href="/"
-		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 	>
 		Retourner à l'accueil
 	</a>

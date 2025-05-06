@@ -25,17 +25,19 @@
 </script>
 
 <div class="py-12 flex flex-col items-center gap-12">
-	<PartyPopper size={92} class="text-green-900" />
+	<PartyPopper size={92} class="text-green-900 dark:text-green-100" />
 	<div class="text-3xl font-serif font-bold text-center">
 		Vous avez terminé votre livre !
 	</div>
 	<div class="w-full">
-		<div class="mb-4 text-center font-medium italic text-green-900">
+		<div
+			class="mb-4 text-center font-medium italic text-green-900 dark:text-green-100"
+		>
 			Choisissez votre prochaine lecture !
 		</div>
 		<a
 			href="/stack"
-			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 border-2 border-green-900"
+			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
 		>
 			Ma pile de livres
 		</a>

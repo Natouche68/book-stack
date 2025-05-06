@@ -43,10 +43,12 @@
 	<title>Book Stack</title>
 </svelte:head>
 
-<div class="min-h-dvh flex flex-col bg-green-50">
+<div
+	class="min-h-dvh flex flex-col bg-green-50 dark:bg-green-950 dark:text-white"
+>
 	<a
 		href="/"
-		class="block fixed top-0 left-0 right-0 py-4 text-3xl font-black text-center font-serif uppercase bg-green-200 border-b-2 border-b-green-900"
+		class="block fixed top-0 left-0 right-0 py-4 text-3xl font-black text-center font-serif uppercase bg-green-200 dark:bg-green-800 border-b-2 border-b-green-900 dark:border-b-green-100"
 		style="view-transition-name: header;"
 	>
 		Book Stack
