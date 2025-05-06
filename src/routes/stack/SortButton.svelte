@@ -23,7 +23,7 @@
 <button
 	class="mr-1 pl-1 pr-2 text-lg {selected
 		? 'bg-green-300 dark:bg-green-700 font-medium'
-		: 'bg-green-200 dark:bg-green-800'} transition"
+		: 'bg-green-200 dark:bg-green-900'} transition"
 	onclick={() => onClick(property, ascendingOrder, index)}
 >
 	{#if ascendingOrder}
