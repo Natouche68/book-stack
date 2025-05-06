@@ -63,7 +63,7 @@
 	}
 </script>
 
-<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-100">
+<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-300">
 	{#each properties as property, i}
 		<SortButton
 			property={property.property}
@@ -76,7 +76,7 @@
 	{/each}
 </div>
 
-<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-100">
+<div class="px-2 py-4 border-b-2 border-b-green-900 dark:border-b-green-300">
 	{#each tags as tag}
 		<button
 			class="mr-1 pl-1 pr-2 text-lg {tagsToFilter.has(tag)
@@ -113,7 +113,7 @@
 	</div>
 	<a
 		href="/stack/add"
-		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 	>
 		Ajouter un livre
 	</a>

@@ -93,7 +93,7 @@
 
 		{#if book.isReading && book.pageNumber && book.pagesRead != undefined}
 			<button
-				class="relative w-full mt-4 h-8 bg-green-100 dark:bg-green-900 border-2 border-green-900 dark:border-green-100"
+				class="relative w-full mt-4 h-8 bg-green-100 dark:bg-green-900 border-2 border-green-900 dark:border-green-300"
 				onclick={onProgressButtonClicked}
 			>
 				<div
@@ -114,7 +114,7 @@
 		{#if !appState.currentlyReadingBook}
 			<button
 				onclick={onReadBookClick}
-				class="block w-full my-8 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+				class="block w-full my-8 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 			>
 				Lire ce livre
 			</button>
@@ -136,7 +136,7 @@
 	</div>
 	<a
 		href="/"
-		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 	>
 		Retourner à l'accueil
 	</a>

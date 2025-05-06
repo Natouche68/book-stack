@@ -17,7 +17,7 @@
 		pagesRead={appState.currentlyReadingBook.pagesRead}
 	/>
 {:else}
-	<div class="py-4 border-b-2 border-b-green-900 dark:border-b-green-100">
+	<div class="py-4 border-b-2 border-b-green-900 dark:border-b-green-300">
 		<div
 			class="mb-4 text-center font-medium italic text-green-900 dark:text-green-100"
 		>
@@ -27,7 +27,7 @@
 		</div>
 		<a
 			href="/stack"
-			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 		>
 			Ma pile de livres
 		</a>
@@ -66,7 +66,7 @@
 	</div>
 	<a
 		href="/stack/add"
-		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+		class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 	>
 		Ajouter un livre
 	</a>
@@ -74,7 +74,7 @@
 
 <a
 	href="/stats"
-	class="fixed bottom-2 left-2 block p-2 text-center text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+	class="fixed bottom-2 left-2 block p-2 text-center text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 >
 	Statistiques
 </a>

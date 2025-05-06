@@ -42,14 +42,14 @@
 
 <a
 	href="/book/{isbn}"
-	class="block p-4 border-b-2 border-b-green-900 dark:border-b-green-100"
+	class="block p-4 border-b-2 border-b-green-900 dark:border-b-green-300"
 >
 	<div class="flex flex-row">
 		<img src={coverImg} alt="{title} de {author}" class="w-1/3" />
 
 		<div class="pl-4 flex flex-col">
 			{#if isReading}
-				<div class="mb-1 text-sm italic text-green-900 dark:text-green-100">
+				<div class="mb-1 text-sm italic text-green-900 dark:text-green-300">
 					En cours de lecture
 				</div>
 			{/if}
@@ -77,7 +77,7 @@
 
 	{#if isReading && pageNumber && pagesRead != undefined}
 		<button
-			class="relative w-full mt-4 h-8 bg-green-100 dark:bg-green-900 border-2 border-green-900 dark:border-green-100"
+			class="relative w-full mt-4 h-8 bg-green-100 dark:bg-green-900 border-2 border-green-900 dark:border-green-300"
 			onclick={onProgressButtonClicked}
 		>
 			<div

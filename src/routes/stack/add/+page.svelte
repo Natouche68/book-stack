@@ -50,7 +50,7 @@
 		<input
 			type="number"
 			id="isbn"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			bind:value={isbn}
 			onchange={onIsbnEntered}
@@ -66,7 +66,7 @@
 		<input
 			type="text"
 			id="title"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			bind:value={title}
 		/>
@@ -77,7 +77,7 @@
 		<input
 			type="text"
 			id="author"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			bind:value={author}
 		/>
@@ -89,7 +89,7 @@
 		<input
 			type="text"
 			id="coverImg"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			bind:value={coverImg}
 		/>
@@ -101,7 +101,7 @@
 		<input
 			type="date"
 			id="buyingDate"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			placeholder="2023-08-22"
 			bind:value={buyingDate}
@@ -114,7 +114,7 @@
 		<input
 			type="number"
 			id="pageNumber"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			required
 			bind:value={pageNumber}
 		/>
@@ -126,7 +126,7 @@
 		<input
 			type="text"
 			id="tags"
-			class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 			placeholder="romance, best-friends to lover"
 			bind:value={tags}
 		/>
@@ -134,7 +134,7 @@
 	<div class="py-6">
 		<button
 			type="submit"
-			class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+			class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 		>
 			Ajouter
 		</button>

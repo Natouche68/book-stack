@@ -48,7 +48,7 @@
 >
 	<a
 		href="/"
-		class="block fixed top-0 left-0 right-0 py-4 text-3xl font-black text-center font-serif uppercase bg-green-200 dark:bg-green-800 border-b-2 border-b-green-900 dark:border-b-green-100"
+		class="block fixed top-0 left-0 right-0 py-4 text-3xl font-black text-center font-serif uppercase bg-green-200 dark:bg-green-800 border-b-2 border-b-green-900 dark:border-b-green-300"
 		style="view-transition-name: header;"
 	>
 		Book Stack

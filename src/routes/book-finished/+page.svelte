@@ -37,7 +37,7 @@
 		</div>
 		<a
 			href="/stack"
-			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+			class="block mx-4 py-2 text-center text-xl font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 		>
 			Ma pile de livres
 		</a>

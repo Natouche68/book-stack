@@ -116,7 +116,7 @@
 		transition:fade={{ duration: 300 }}
 	></div>
 	<div
-		class="fixed z-10 bottom-0 w-screen p-4 bg-green-50 dark:bg-green-950 border-t-2 border-t-green-900 dark:border-t-green-100"
+		class="fixed z-10 bottom-0 w-screen p-4 bg-green-50 dark:bg-green-950 border-t-2 border-t-green-900 dark:border-t-green-300"
 		transition:slide={{ duration: 300, axis: "y" }}
 	>
 		<div class="mb-2 font-serif font-bold text-2xl text-left">
@@ -134,7 +134,7 @@
 				id="newPagesRead"
 				min="1"
 				max={pageNumber - pagesRead}
-				class="w-full bg-transparent border-2 border-green-900 dark:border-green-100"
+				class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 				required
 				bind:value={newPagesRead}
 			/>
@@ -142,7 +142,7 @@
 		<div class="pt-4">
 			<button
 				onclick={onSubmit}
-				class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-100"
+				class="w-full py-2 text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 			>
 				Mettre à jour
 			</button>
