@@ -29,6 +29,7 @@ export type AppState = {
 	};
 	bookFinished: number;
 	lastVisit: number;
+	darkColorTheme: boolean;
 };
 
 export let appState: AppState = $state({
@@ -66,6 +67,7 @@ export let appState: AppState = $state({
 	},
 	bookFinished: 0,
 	lastVisit: 0,
+	darkColorTheme: true,
 });
 
 export function getTags(): string[] {

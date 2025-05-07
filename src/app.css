@@ -7,3 +7,5 @@
 	--font-sans: "Inter", "sans-serif";
 	--font-serif: "Spectral", "serif";
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

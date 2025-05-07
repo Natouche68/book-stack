@@ -7,6 +7,11 @@
 	let { children } = $props();
 
 	onMount(() => {
+		appState.darkColorTheme =
+			localStorage.theme === "dark" ||
+			(!("theme" in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches);
+
 		const bookStackStored = localStorage.getItem("bookStack") || "[]";
 		appState.bookStack = JSON.parse(bookStackStored) as Book[];
 
@@ -44,7 +49,9 @@
 </svelte:head>
 
 <div
-	class="min-h-dvh flex flex-col bg-green-50 dark:bg-green-950 dark:text-white"
+	class="min-h-dvh flex flex-col bg-green-50 dark:bg-green-950 dark:text-white {appState.darkColorTheme
+		? 'dark'
+		: ''}"
 >
 	<a
 		href="/"

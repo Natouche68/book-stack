@@ -73,6 +73,14 @@
 {/if}
 
 <a
+	href="/settings"
+	class="block my-2 font-serif font-bold italic text-xl text-center underline text-green-900 dark:text-green-100"
+	>Paramètres</a
+>
+
+<div class="h-12"></div>
+
+<a
 	href="/stats"
 	class="fixed bottom-2 left-2 block p-2 text-center text-lg font-serif font-bold bg-green-300 dark:bg-green-700 border-2 border-green-900 dark:border-green-300"
 >
