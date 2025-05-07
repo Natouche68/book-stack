@@ -2,10 +2,6 @@
 	import { appState } from "$lib/data.svelte";
 	import { onMount } from "svelte";
 
-	// localStorage.theme === "dark" ||
-	// 		(!("theme" in localStorage) &&
-	// 			window.matchMedia("(prefers-color-scheme: dark)").matches);
-
 	let themeSelected: "light" | "system" | "dark" = $state("system");
 
 	onMount(() => {
@@ -31,6 +27,27 @@
 				break;
 		}
 	});
+
+	function exportData(): void {
+		const data = {
+			bookFinished: appState.bookFinished,
+			bookStack: appState.bookStack,
+			currentlyReading: appState.currentlyReadingBook,
+			lastVisit: appState.lastVisit,
+			statsPerDay: appState.statsPerDay,
+			theme: themeSelected == "system" ? undefined : themeSelected,
+		};
+
+		const dataToSave = encodeURIComponent(JSON.stringify(data));
+
+		const a = document.createElement("a");
+		a.setAttribute(
+			"href",
+			"data:application/json;charset=utf-8, " + dataToSave
+		);
+		a.setAttribute("download", "book-stack-backup.json");
+		a.click();
+	}
 </script>
 
 <div class="mx-4 mt-4 text-2xl font-bold font-serif">Paramètres</div>
@@ -63,4 +80,13 @@
 			Sombre
 		</button>
 	</div>
+</div>
+
+<div class="m-4">
+	<button
+		class="w-full p-2 text-center font-serif font-bold text-lg bg-green-200 dark:bg-green-800 border-2 border-green-900 dark:border-green-300"
+		onclick={exportData}
+	>
+		Exporter les données
+	</button>
 </div>
