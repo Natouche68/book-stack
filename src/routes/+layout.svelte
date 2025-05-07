@@ -33,6 +33,12 @@
 	});
 
 	onNavigate((navigation) => {
+		if (appState.darkColorTheme) {
+			document.body.style.backgroundColor = "#022310";
+		} else {
+			document.body.style.backgroundColor = "#fff";
+		}
+
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
