@@ -86,13 +86,20 @@
 		<label for="coverImg" class="text-green-900 dark:text-green-100"
 			>Image de couverture</label
 		>
-		<input
-			type="text"
-			id="coverImg"
+		<div
 			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
-			required
-			bind:value={coverImg}
-		/>
+		>
+			<input
+				type="text"
+				id="coverImg"
+				class="w-full bg-transparent border-0"
+				required
+				bind:value={coverImg}
+			/>
+			{#if coverImg}
+				<img src={coverImg} alt="Couverture" class="mx-auto mb-4 w-1/2" />
+			{/if}
+		</div>
 	</div>
 	<div class="py-2 flex flex-col">
 		<label for="buyingDate" class="text-green-900 dark:text-green-100"
