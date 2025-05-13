@@ -52,6 +52,7 @@
 
 <svelte:head>
 	<title>Book Stack</title>
+	<link rel="manifest" href="manifest.json" />
 </svelte:head>
 
 <div
