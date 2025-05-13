@@ -138,6 +138,9 @@
 				required
 				bind:value={newPagesRead}
 			/>
+			<div class="text-right italic text-green-900 dark:text-green-100">
+				Reste {pageNumber - pagesRead} pages
+			</div>
 		</div>
 		<div class="pt-4">
 			<button
