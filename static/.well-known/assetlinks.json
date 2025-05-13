@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.natouche.bookstack",
+        "sha256_cert_fingerprints": ["15:DB:F5:8B:AA:50:93:C0:62:39:EB:49:D0:96:A3:40:44:FB:44:53:EE:3B:71:58:E6:2E:D3:E7:28:3C:4B:A2"]
+      }
+    }]
