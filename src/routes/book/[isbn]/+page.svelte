@@ -119,6 +119,13 @@
 				Lire ce livre
 			</button>
 		{/if}
+
+		<a
+			href="/book/edit/{book.isbn}"
+			class="block w-full py-2 text-center text-lg font-serif underline text-green-900 dark:text-green-100"
+		>
+			Modifier
+		</a>
 	</div>
 
 	{#if book.isReading && book.pageNumber && book.pagesRead != undefined}

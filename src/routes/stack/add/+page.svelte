@@ -83,9 +83,9 @@
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="coverImg" class="text-green-900 dark:text-green-100"
-			>Image de couverture</label
-		>
+		<label for="coverImg" class="text-green-900 dark:text-green-100">
+			Image de couverture
+		</label>
 		<div
 			class="w-full bg-transparent border-2 border-green-900 dark:border-green-300"
 		>
@@ -102,9 +102,9 @@
 		</div>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="buyingDate" class="text-green-900 dark:text-green-100"
-			>Date d'achat</label
-		>
+		<label for="buyingDate" class="text-green-900 dark:text-green-100">
+			Date d'achat
+		</label>
 		<input
 			type="date"
 			id="buyingDate"
@@ -115,9 +115,9 @@
 		/>
 	</div>
 	<div class="py-2 flex flex-col">
-		<label for="pageNumber" class="text-green-900 dark:text-green-100"
-			>Nombre de pages</label
-		>
+		<label for="pageNumber" class="text-green-900 dark:text-green-100">
+			Nombre de pages
+		</label>
 		<input
 			type="number"
 			id="pageNumber"
